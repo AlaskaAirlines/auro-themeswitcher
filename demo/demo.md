@@ -8,11 +8,7 @@ This file is generated based on a template fetched from `./docs/partials/demo.md
 
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./description.md) -->
 <!-- The below content is automatically added from ./description.md -->
-`<auro-themeswitcher>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis in tellus nec pellentesque. Integer bibendum ligula sit amet vehicula gravida. Maecenas accumsan, ligula vitae molestie iaculis, tellus mi laoreet ex [install instructions](https://auro.alaskaair.com/components/auro/button/install), ac malesuada velit dolor vel mi. Cras et rutrum urna. Sed mattis mi eu tortor ullamcorper, egestas bibendum mauris cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra eros eget neque commodo vulputate. In tempus eu velit at dictum.
-
-Nulla at augue facilisis `odio lobortis` molestie vitae a nulla.
+`<auro-themeswitcher>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of allowing users a way to dynamically change themes by changing which design tokens are loaded into the DOM.
 <!-- AURO-GENERATED-CONTENT:END -->
 
 ## auro-themeswitcher use cases
@@ -21,47 +17,15 @@ Nulla at augue facilisis `odio lobortis` molestie vitae a nulla.
 <!-- The below content is automatically added from ./useCases.md -->
 The `<auro-themeswitcher>` element should be used in situations where users may:
 
-* ...
-* ...
-* ...
+* Test component styles against different themes.
 <!-- AURO-GENERATED-CONTENT:END -->
-
-## Additional Information
-
-> Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam fermentum libero ipsum, ac tempor sapien blandit in. Nam tincidunt non felis molestie varius.
-
-|convallis|tristique|nisl dignissim|eleifend|
-|---|---|---|---|
-|√|√|||
-|||√|√|
-
-Aenean at blandit lorem. Fusce imperdiet mi nec gravida maximus. Quisque nisl libero, condimentum in nisi a, imperdiet lacinia arcu.
-
-```javascript
-toggleDialog = (elName) => {
-  let dialog = document.querySelector(elName);
-  const html = document.querySelector('html');
-
-  html.style.overflow = 'hidden';
-  dialog.removeAttribute("open");
-  dialog.setAttribute("open", true);
-}
-
-toggleDialogClose = (elName) => {
-  let dialog = document.querySelector(elName);
-  const html = document.querySelector('html');
-
-  html.style.overflow = '';
-  dialog.removeAttribute("open");
-}
-```
 
 ## Example(s)
 
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
   <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
-  <auro-themeswitcher>Hello World</auro-themeswitcher>
+  <auro-themeswitcher></auro-themeswitcher>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
@@ -70,11 +34,10 @@ toggleDialogClose = (elName) => {
 <!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
 
 ```html
-<auro-themeswitcher>Hello World</auro-themeswitcher>
+<auro-themeswitcher></auro-themeswitcher>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
-Having a closing statement about your example helps to really complete the thought with your reader.
 
 ## Recommended Use and Version Control
 
@@ -90,12 +53,18 @@ registerComponent('custom-themeswitcher');
 This will create a new custom element that you can use in your HTML that will function identically to the `auro-themeswitcher` element.
 
 <div class="exampleWrapper">
-  <custom-header display="display">Salutations World!</custom-header>
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/customName.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/customName.html -->
+  <custom-themeswitcher></custom-themeswitcher>
+  <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
-  ```html
-  <custom-header display="display">Salutations World!</custom-header>
-  ```
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/customName.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/customName.html -->
 
+```html
+<custom-themeswitcher></custom-themeswitcher>
+```
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
