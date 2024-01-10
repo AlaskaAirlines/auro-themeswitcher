@@ -1,15 +1,7 @@
 # auro-themeswitcher
 
-The auro-themeswitcher element provides users a way to ... (it would be great if you fill this out).
-
-## Attributes
-
-| Attribute | Type      | Description                               |
-|-----------|-----------|-------------------------------------------|
-| `fixed`   | `Boolean` | Uses fixed pixel values for element shape |
-
 ## Properties
 
-| Property   | Attribute  | Type     | Description                                      |
-|------------|------------|----------|--------------------------------------------------|
-| `cssClass` | `cssClass` | `String` | Applies designated CSS class to demo element - you want to delete me! |
+| Property | Attribute | Type    | Default                                          | Description                                      |
+|----------|-----------|---------|--------------------------------------------------|--------------------------------------------------|
+| `themes` | `themes`  | `Array` | [{"label":"Auro 4.x","url":"https://cdn.jsdelivr.net/npm/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css"},{"label":"Auro 5.x","url":"https://cdn.jsdelivr.net/npm/@aurodesignsystem/design-tokens@latest/dist/tokens/CSSCustomProperties.css"}] | This accepts an array of JSON object outlining the themes to support. |

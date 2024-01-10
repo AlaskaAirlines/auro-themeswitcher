@@ -3,19 +3,11 @@
 
 # auro-themeswitcher
 
-The auro-themeswitcher element provides users a way to ... (it would be great if you fill this out).
-
-## Attributes
-
-| Attribute | Type      | Description                               |
-|-----------|-----------|-------------------------------------------|
-| [fixed](#fixed)   | `Boolean` | Uses fixed pixel values for element shape |
-
 ## Properties
 
-| Property   | Attribute  | Type     | Description                                      |
-|------------|------------|----------|--------------------------------------------------|
-| [cssClass](#cssClass) | `cssClass` | `String` | Applies designated CSS class to demo element - you want to delete me! |
+| Property | Attribute | Type    | Default                                          | Description                                      |
+|----------|-----------|---------|--------------------------------------------------|--------------------------------------------------|
+| [themes](#themes) | `themes`  | `Array` | [{"label":"Auro 4.x","url":"https://cdn.jsdelivr.net/npm/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css"},{"label":"Auro 5.x","url":"https://cdn.jsdelivr.net/npm/@aurodesignsystem/design-tokens@latest/dist/tokens/CSSCustomProperties.css"}] | This accepts an array of JSON object outlining the themes to support. |
 <!-- AURO-GENERATED-CONTENT:END -->
 
 ## API Examples
@@ -27,7 +19,7 @@ The auro-themeswitcher element provides users a way to ... (it would be great if
     <div class="exampleWrapper">
       <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
       <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
-      <auro-themeswitcher>Hello World</auro-themeswitcher>
+      <auro-themeswitcher></auro-themeswitcher>
       <!-- AURO-GENERATED-CONTENT:END -->
     </div>
 <auro-accordion lowProfile justifyRight>
@@ -36,29 +28,7 @@ The auro-themeswitcher element provides users a way to ... (it would be great if
 <!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
 
 ```html
-<auro-themeswitcher>Hello World</auro-themeswitcher>
-```
-<!-- AURO-GENERATED-CONTENT:END -->
-</auro-accordion>
-
-### Attribute Examples
-
-#### <a name="attributeName"></a>`attributeName`<a href="#auro-themeswitcher" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
-Explanation and use description.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
-  <auro-themeswitcher>Hello World</auro-themeswitcher>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
-
-```html
-<auro-themeswitcher>Hello World</auro-themeswitcher>
+<auro-themeswitcher></auro-themeswitcher>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
@@ -71,7 +41,7 @@ Explanation and use description.
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
   <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
-  <auro-themeswitcher>Hello World</auro-themeswitcher>
+  <auro-themeswitcher></auro-themeswitcher>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
@@ -80,73 +50,7 @@ Explanation and use description.
 <!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
 
 ```html
-<auro-themeswitcher>Hello World</auro-themeswitcher>
-```
-<!-- AURO-GENERATED-CONTENT:END -->
-</auro-accordion>
-
-### Method Examples
-
-#### <a name="methodName"></a>`methodName`<a href="#auro-themeswitcher" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
-Explanation and use description.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
-  <auro-themeswitcher>Hello World</auro-themeswitcher>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
-
-```html
-<auro-themeswitcher>Hello World</auro-themeswitcher>
-```
-<!-- AURO-GENERATED-CONTENT:END -->
-</auro-accordion>
-
-### Event Examples
-
-#### <a name="eventName"></a>`eventName`<a href="#auro-themeswitcher" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
-Explanation and use description.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
-  <auro-themeswitcher>Hello World</auro-themeswitcher>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
-
-```html
-<auro-themeswitcher>Hello World</auro-themeswitcher>
-```
-<!-- AURO-GENERATED-CONTENT:END -->
-</auro-accordion>
-
-### Slot Examples
-
-#### <a name="slotName"></a>`slotName`<a href="#auro-themeswitcher" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
-Explanation and use description.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
-  <auro-themeswitcher>Hello World</auro-themeswitcher>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
-
-```html
-<auro-themeswitcher>Hello World</auro-themeswitcher>
+<auro-themeswitcher></auro-themeswitcher>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
