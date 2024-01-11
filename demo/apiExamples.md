@@ -19,7 +19,7 @@
     <div class="exampleWrapper">
       <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
       <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
-      <auro-themeswitcher></auro-themeswitcher>
+      <auro-themeswitcher>Select Theme(s)</auro-themeswitcher>
       <!-- AURO-GENERATED-CONTENT:END -->
     </div>
 <auro-accordion lowProfile justifyRight>
@@ -28,7 +28,7 @@
 <!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
 
 ```html
-<auro-themeswitcher></auro-themeswitcher>
+<auro-themeswitcher>Select Theme(s)</auro-themeswitcher>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
@@ -41,7 +41,7 @@ Explanation and use description.
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
   <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
-  <auro-themeswitcher></auro-themeswitcher>
+  <auro-themeswitcher>Select Theme(s)</auro-themeswitcher>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
@@ -50,7 +50,7 @@ Explanation and use description.
 <!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
 
 ```html
-<auro-themeswitcher></auro-themeswitcher>
+<auro-themeswitcher>Select Theme(s)</auro-themeswitcher>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>

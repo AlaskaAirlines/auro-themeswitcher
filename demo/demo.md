@@ -25,7 +25,7 @@ The `<auro-themeswitcher>` element should be used in situations where users may:
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
   <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
-  <auro-themeswitcher></auro-themeswitcher>
+  <auro-themeswitcher>Select Theme(s)</auro-themeswitcher>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
@@ -34,7 +34,7 @@ The `<auro-themeswitcher>` element should be used in situations where users may:
 <!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
 
 ```html
-<auro-themeswitcher></auro-themeswitcher>
+<auro-themeswitcher>Select Theme(s)</auro-themeswitcher>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
@@ -55,7 +55,7 @@ This will create a new custom element that you can use in your HTML that will fu
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/customName.html) -->
   <!-- The below content is automatically added from ./../../apiExamples/customName.html -->
-  <custom-themeswitcher></custom-themeswitcher>
+  <custom-themeswitcher>Select Theme(s)</custom-themeswitcher>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion lowProfile justifyRight>
@@ -64,7 +64,7 @@ This will create a new custom element that you can use in your HTML that will fu
 <!-- The below code snippet is automatically added from ./../../apiExamples/customName.html -->
 
 ```html
-<custom-themeswitcher></custom-themeswitcher>
+<custom-themeswitcher>Select Theme(s)</custom-themeswitcher>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>

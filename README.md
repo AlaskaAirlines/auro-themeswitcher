@@ -84,7 +84,7 @@ import "@aurodesignsystem/auro-themeswitcher";
 <!-- The below code snippet is automatically added from ./../apiExamples/basic.html -->
 
 ```html
-<auro-themeswitcher></auro-themeswitcher>
+<auro-themeswitcher>Select Theme(s)</auro-themeswitcher>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 
@@ -127,7 +127,7 @@ The `<auro-themeswitcher>` element should be used in situations where users may:
 <!-- The below code snippet is automatically added from ./../apiExamples/basic.html -->
 
 ```html
-<auro-themeswitcher></auro-themeswitcher>
+<auro-themeswitcher>Select Theme(s)</auro-themeswitcher>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 
