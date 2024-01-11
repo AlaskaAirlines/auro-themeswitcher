@@ -17,14 +17,6 @@ export class AuroThemeswitcher extends LitElement {
     super();
     this.themes = [
       {
-        label: 'Auro 4.x',
-        url: 'https://cdn.jsdelivr.net/npm/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css'
-      },
-      {
-        label: 'Auro 5.x',
-        url: 'https://cdn.jsdelivr.net/npm/@aurodesignsystem/design-tokens@latest/dist/tokens/CSSCustomProperties.css'
-      },
-      {
         label: 'Slim',
         url: 'https://jetstream-rouge.vercel.app/themes/slim.css'
       },
@@ -33,6 +25,15 @@ export class AuroThemeswitcher extends LitElement {
         url: 'https://jetstream-rouge.vercel.app/themes/orange.css'
       }
     ];
+
+    // {
+    //   label: 'Auro 4.x',
+    //   url: 'https://cdn.jsdelivr.net/npm/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css'
+    // },
+    // {
+    //   label: 'Auro 5.x',
+    //   url: 'https://cdn.jsdelivr.net/npm/@aurodesignsystem/design-tokens@latest/dist/tokens/CSSCustomProperties.css'
+    // },
 
     /**
      * @private
@@ -227,8 +228,8 @@ export class AuroThemeswitcher extends LitElement {
   render() {
     return html`
       <div>
-        <auro-button class="themeSwitcherLaunchBtn" aria-label="Theme Switcher" variant="tertiary" slim iconOnly @click="${this.toggleThemeSwitcher}" part="trigger">
-          <auro-icon slot="icon" category="interface" name="settings"></auro-icon>
+        <auro-button aria-label="Theme Switcher" @click="${this.toggleThemeSwitcher}" part="trigger">
+          <slot></slot>
         </auro-button>
         <auro-dialog id="auroThemeSwitcherDialog" part="dialog">
           <span slot="header">Theme Switcher</span>
