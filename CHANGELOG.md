@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.3](https://github.com/AlaskaAirlines/auro-themeswitcher/compare/v1.0.2...v1.0.3) (2024-01-12)
+
+
+### Bug Fixes
+
+* **themes:** correct theme name ([b0b75ec](https://github.com/AlaskaAirlines/auro-themeswitcher/commit/b0b75eca671152fe6f7b4cad0009a9f6c6b44c1b))
+
 ## [1.0.2](https://github.com/AlaskaAirlines/auro-themeswitcher/compare/v1.0.1...v1.0.2) (2024-01-12)
 
 
