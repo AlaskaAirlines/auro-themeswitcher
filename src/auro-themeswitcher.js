@@ -21,8 +21,8 @@ export class AuroThemeswitcher extends LitElement {
         url: 'https://jetstream-rouge.vercel.app/themes/slim.css'
       },
       {
-        label: 'California',
-        url: 'https://jetstream-rouge.vercel.app/themes/california.css'
+        label: 'Californian',
+        url: 'https://jetstream-rouge.vercel.app/themes/californian.css'
       },
       {
         label: 'Night',
