@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.4](https://github.com/AlaskaAirlines/auro-themeswitcher/compare/v1.0.3...v1.0.4) (2024-01-12)
+
+
+### Bug Fixes
+
+* **dense:** correct typo of dense theme url ([312ab10](https://github.com/AlaskaAirlines/auro-themeswitcher/commit/312ab10a72524161d114cdee6e770ea985271357))
+
 ## [1.0.3](https://github.com/AlaskaAirlines/auro-themeswitcher/compare/v1.0.2...v1.0.3) (2024-01-12)
 
 
