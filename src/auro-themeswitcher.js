@@ -10,7 +10,7 @@ import styleCss from "./style-css.js";
  * @attr {Array} themes - This accepts an array of JSON object outlining the themes to support.
  */
 
-/* eslint-disable max-statements, one-var, no-magic-numbers */
+/* eslint-disable max-statements, one-var, no-magic-numbers, max-lines */
 export class AuroThemeswitcher extends LitElement {
 
   constructor() {
