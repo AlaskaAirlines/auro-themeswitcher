@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.2.0](https://github.com/AlaskaAirlines/auro-themeswitcher/compare/v1.1.0...v1.2.0) (2024-01-17)
+
+
+### Features
+
+* **theme:** add night scoped theme ([5683d95](https://github.com/AlaskaAirlines/auro-themeswitcher/commit/5683d95684ae8f7a6d0c9e852370414e6b9a745e))
+
 # [1.1.0](https://github.com/AlaskaAirlines/auro-themeswitcher/compare/v1.0.4...v1.1.0) (2024-01-17)
 
 
