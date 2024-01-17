@@ -1,5 +1,17 @@
 # Semantic Release Automated Changelog
 
+# [1.1.0](https://github.com/AlaskaAirlines/auro-themeswitcher/compare/v1.0.4...v1.1.0) (2024-01-17)
+
+
+### Bug Fixes
+
+* **linters:** add linter exception ([8e92ef6](https://github.com/AlaskaAirlines/auro-themeswitcher/commit/8e92ef62b00cc566a92e57205c0465257d215853))
+
+
+### Features
+
+* **theme:** add retro theme to picker ([76f23bd](https://github.com/AlaskaAirlines/auro-themeswitcher/commit/76f23bdab8c6a49d6a3fde610af997c71a19a0f2))
+
 ## [1.0.4](https://github.com/AlaskaAirlines/auro-themeswitcher/compare/v1.0.3...v1.0.4) (2024-01-12)
 
 
