@@ -29,16 +29,12 @@ export class AuroThemeswitcher extends LitElement {
         url: 'https://jetstream-rouge.vercel.app/themes/night.css'
       },
       {
+        label: 'Night - Scoped',
+        url: 'https://jetstream-rouge.vercel.app/themes/nightScoped.css'
+      },
+      {
         label: 'Orange',
         url: 'https://jetstream-rouge.vercel.app/themes/orange.css'
-      },
-      {
-        label: 'Retro',
-        url: 'https://jetstream-rouge.vercel.app/themes/retro.css'
-      },
-      {
-        label: 'Retro - Scoped',
-        url: 'https://jetstream-rouge.vercel.app/themes/retroScoped.css'
       }
     ];
 
