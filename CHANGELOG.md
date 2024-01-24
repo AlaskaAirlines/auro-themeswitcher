@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.3.0](https://github.com/AlaskaAirlines/auro-themeswitcher/compare/v1.2.0...v1.3.0) (2024-01-24)
+
+
+### Features
+
+* **theme:** add jetstream scoped theme ([8e4fed9](https://github.com/AlaskaAirlines/auro-themeswitcher/commit/8e4fed9f3da39ce69e11a6473a09829abcc3c8c3))
+
 # [1.2.0](https://github.com/AlaskaAirlines/auro-themeswitcher/compare/v1.1.0...v1.2.0) (2024-01-17)
 
 
