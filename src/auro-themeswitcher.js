@@ -17,28 +17,24 @@ export class AuroThemeswitcher extends LitElement {
     super();
     this.themes = [
       {
-        label: 'Dense',
-        url: 'https://jetstream-rouge.vercel.app/themes/dense.css'
+        label: 'Jetstream',
+        url: 'https://jetstream-rouge.vercel.app/themes/jetstream.css'
       },
       {
         label: 'Californian',
         url: 'https://jetstream-rouge.vercel.app/themes/californian.css'
       },
       {
-        label: 'Night',
+        label: 'Excursion Prototype',
+        url: 'https://jetstream-rouge.vercel.app/themes/excursion.css'
+      },
+      {
+        label: 'Excursion Green',
+        url: 'https://jetstream-rouge.vercel.app/themes/excursion-green.css'
+      },
+      {
+        label: 'Excursion Dark',
         url: 'https://jetstream-rouge.vercel.app/themes/night.css'
-      },
-      {
-        label: 'Night - Scoped',
-        url: 'https://jetstream-rouge.vercel.app/themes/nightScoped.css'
-      },
-      {
-        label: 'Orange',
-        url: 'https://jetstream-rouge.vercel.app/themes/orange.css'
-      },
-      {
-        label: 'Jetstream',
-        url: 'https://jetstream-rouge.vercel.app/themes/jetstream.css'
       }
     ];
 
