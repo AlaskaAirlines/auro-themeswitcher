@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.4.0](https://github.com/AlaskaAirlines/auro-themeswitcher/compare/v1.3.0...v1.4.0) (2024-07-27)
+
+
+### Features
+
+* add additional theme option ([#15](https://github.com/AlaskaAirlines/auro-themeswitcher/issues/15)) ([ec40845](https://github.com/AlaskaAirlines/auro-themeswitcher/commit/ec40845a3eb3e2997549089c04332da62c818268))
+
 # [1.3.0](https://github.com/AlaskaAirlines/auro-themeswitcher/compare/v1.2.0...v1.3.0) (2024-01-24)
 
 
