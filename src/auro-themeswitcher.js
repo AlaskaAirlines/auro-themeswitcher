@@ -3,8 +3,17 @@
 
 // ---------------------------------------------------------------------
 
-import { LitElement, html } from "lit";
+/* eslint-disable complexity, lit/binding-positions, lit/no-invalid-html */
+
+import { LitElement } from "lit";
+import { html } from 'lit/static-html.js';
 import styleCss from "./style-css.js";
+
+import { AuroDependencyVersioning } from '@aurodesignsystem/auro-library/scripts/runtime/dependencyTagVersioning.mjs';
+import { AuroCheckbox } from '@aurodesignsystem/auro-checkbox/src/auro-checkbox.js';
+import checkboxVersion from './checkboxVersion';
+import { AuroButton } from '@aurodesignsystem/auro-button/src/auro-button.js';
+import buttonVersion from './buttonVersion';
 
 /**
  * @attr {Array} themes - This accepts an array of JSON object outlining the themes to support.
@@ -66,6 +75,13 @@ export class AuroThemeswitcher extends LitElement {
      * @private
      */
     this.loadedThemes = [];
+
+    /**
+     * Generate unique names for dependency components.
+     */
+    const versioning = new AuroDependencyVersioning();
+    this.checkboxTag = versioning.generateTag('auro-checkbox', checkboxVersion, AuroCheckbox);
+    this.buttonTag = versioning.generateTag('auro-button', buttonVersion, AuroButton);
   }
 
   static get styles() {
@@ -252,13 +268,13 @@ export class AuroThemeswitcher extends LitElement {
               </span>
               <auro-checkbox-group required>
                 ${this.themes.map((theme) => html`
-                  <auro-checkbox
+                  <${this.checkboxTag}
                     value="${JSON.stringify(theme)}"
                     name="${theme.label}"
                     id="${theme.label}"
                     @auroCheckbox-input="${this.handleCheckboxSelection}">
                     ${theme.label}
-                  </auro-checkbox>
+                  </${this.checkboxTag}>
                 `)}
               </auro-checkbox-group>
             </div>
@@ -278,11 +294,11 @@ export class AuroThemeswitcher extends LitElement {
                     </ol>
                   `}
 
-                  <auro-button
+                  <${this.buttonTag}
                     @click="${this.applyThemes}"
                     ?disabled="${this.disableApply}">
                     APPLY
-                  </auro-button>
+                  </${this.buttonTag}>
                 </div>
               </div>
             `}
