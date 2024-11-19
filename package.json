@@ -142,6 +142,7 @@
     "build:sass:component": "sass --no-source-map src:src",
     "build:version": "node scripts/version.mjs",
     "build:watch": "nodemon -e scss,js,html --watch src --watch apiExamples/**/* --exec npm run build:dev:assets",
+    "build:extension": "npm run build && ./scripts/get_external_deps.sh && cp -r ./dist/auro-themeswitcher__bundled.js ./extension/componentBundle.js",
     "bundler": "rollup -c",
     "bundler:test": "rollup -c -w",
     "scssLint": "stylelint \"./src/**/*.scss\"",

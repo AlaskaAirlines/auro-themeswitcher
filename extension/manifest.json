@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Auro Theme Switcher",
+  "description": "A theme switcher for testing Auro themes",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "switch.png"
+  }
+}
