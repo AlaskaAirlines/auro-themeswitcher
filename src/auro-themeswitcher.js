@@ -21,7 +21,7 @@ import buttonVersion from './buttonVersion';
  * @constructor
  */
 const createThemeSelectionEvent = (themes) => new CustomEvent('theme-selected', {
-  details: {
+  detail: {
     themes
   },
   // Allow the event to bubble up through the DOM
@@ -67,6 +67,9 @@ export class AuroThemeswitcher extends LitElement {
      */
     this.disableApply = true;
 
+    /**
+     * @private
+     */
     this.currentThemes = [];
 
     /**

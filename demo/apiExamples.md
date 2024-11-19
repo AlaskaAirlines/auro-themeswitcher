@@ -5,12 +5,11 @@
 
 ## Properties
 
-| Property        | Attribute       | Type    | Default                                          | Description                                      |
-|-----------------|-----------------|---------|--------------------------------------------------|--------------------------------------------------|
-| [buttonTag](#buttonTag)     |                 |         |                                                  |                                                  |
-| [checkboxTag](#checkboxTag)   |                 |         |                                                  |                                                  |
-| [currentThemes](#currentThemes) | `currentThemes` | `array` | []                                               |                                                  |
-| [themes](#themes)        | `themes`        | `Array` | [{"label":"Jetstream","url":"https://jetstream-rouge.vercel.app/themes/jetstream.css"},{"label":"Californian","url":"https://jetstream-rouge.vercel.app/themes/californian.css"},{"label":"Excursion Prototype","url":"https://jetstream-rouge.vercel.app/themes/excursion.css"},{"label":"Excursion Green","url":"https://jetstream-rouge.vercel.app/themes/excursion-green.css"},{"label":"Excursion Dark","url":"https://jetstream-rouge.vercel.app/themes/night.css"}] | This accepts an array of JSON object outlining the themes to support. |
+| Property      | Attribute | Type    | Default                                          | Description                                      |
+|---------------|-----------|---------|--------------------------------------------------|--------------------------------------------------|
+| [buttonTag](#buttonTag)   |           |         |                                                  |                                                  |
+| [checkboxTag](#checkboxTag) |           |         |                                                  |                                                  |
+| [themes](#themes)      | `themes`  | `Array` | [{"label":"Jetstream","url":"https://jetstream-rouge.vercel.app/themes/jetstream.css"},{"label":"Californian","url":"https://jetstream-rouge.vercel.app/themes/californian.css"},{"label":"Excursion Prototype","url":"https://jetstream-rouge.vercel.app/themes/excursion.css"},{"label":"Excursion Green","url":"https://jetstream-rouge.vercel.app/themes/excursion-green.css"},{"label":"Excursion Dark","url":"https://jetstream-rouge.vercel.app/themes/night.css"}] | This accepts an array of JSON object outlining the themes to support. |
 <!-- AURO-GENERATED-CONTENT:END -->
 
 ## API Examples

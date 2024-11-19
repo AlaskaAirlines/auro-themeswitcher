@@ -18,7 +18,7 @@ const themeSwitcher = document.querySelector('auro-themeswitcher');
 
 themeSwitcher.addEventListener('theme-selected', async (event) => {
   /** @type {Array<{label: string; url: string;}>} **/
-  const themeArr = event.target.currentThemes.map((theme) => JSON.parse(theme));
+  const themeArr = event.detail.themes.map((theme) => JSON.parse(theme));
   const tabId = await getTabId();
 
   await chrome.scripting.executeScript({
