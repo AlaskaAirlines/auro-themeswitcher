@@ -11,7 +11,7 @@
         "external_deps/CSSCustomProperties.css",
         "external_deps/essentials.css"
       ],
-      "js": ["removeAuroImports.js"]
+      "js": ["prepareDOM.js"]
     }
   ],
   "action": {
@@ -22,5 +22,5 @@
     "http://*/*",
     "https://*/*"
   ],
-  "permissions": ["scripting", "tabs"]
+  "permissions": ["scripting", "tabs", "storage"]
 }
