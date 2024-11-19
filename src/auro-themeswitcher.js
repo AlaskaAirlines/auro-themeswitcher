@@ -16,6 +16,21 @@ import { AuroButton } from '@aurodesignsystem/auro-button/src/auro-button.js';
 import buttonVersion from './buttonVersion';
 
 /**
+ * @param {{label: string; url: string}[]} themes
+ * @return {CustomEvent<{themes: {label: string; url: string}[]}>}
+ * @constructor
+ */
+const createThemeSelectionEvent = (themes) => new CustomEvent('theme-selected', {
+  details: {
+    themes
+  },
+  // Allow the event to bubble up through the DOM
+  bubbles: true,
+  // Allow the event to cross shadow DOM boundaries
+  composed: true
+});
+
+/**
  * @attr {Array} themes - This accepts an array of JSON object outlining the themes to support.
  */
 
@@ -47,24 +62,12 @@ export class AuroThemeswitcher extends LitElement {
       }
     ];
 
-    // {
-    //   label: 'Auro 4.x',
-    //   url: 'https://cdn.jsdelivr.net/npm/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css'
-    // },
-    // {
-    //   label: 'Auro 5.x',
-    //   url: 'https://cdn.jsdelivr.net/npm/@aurodesignsystem/design-tokens@latest/dist/tokens/CSSCustomProperties.css'
-    // },
-
     /**
      * @private
      */
     this.disableApply = true;
 
-    /**
-     * @private
-     */
-    this.currentTheme = [];
+    this.currentThemes = [];
 
     /**
      * @private
@@ -93,7 +96,7 @@ export class AuroThemeswitcher extends LitElement {
       themes:        {
         type: Array
       },
-      currentTheme: {
+      currentThemes: {
         type: Array
       },
       newTheme: {
@@ -148,9 +151,9 @@ export class AuroThemeswitcher extends LitElement {
   loadSelectedthemes() {
     const head = document.getElementsByTagName("head")[0]; // eslint-disable-line prefer-destructuring
 
-    this.currentTheme = this.newTheme;
+    this.currentThemes = this.newTheme;
 
-    this.currentTheme.forEach((theme) => {
+    this.currentThemes.forEach((theme) => {
       const themeObj = JSON.parse(theme);
       const link = document.createElement("link");
 
@@ -160,11 +163,13 @@ export class AuroThemeswitcher extends LitElement {
 
       head.appendChild(link);
     });
+
+    this.dispatchEvent(createThemeSelectionEvent(this.currentThemes));
   }
 
   /**
    * @private
-   * @param {Object} evt - Event fired by clicking on the checkbox.
+   * @param {Event} evt - Event fired by clicking on the checkbox.
    * @returns {void} Adds or removes the themes from the list to be applied.
    */
   handleCheckboxSelection(evt) {
@@ -225,7 +230,7 @@ export class AuroThemeswitcher extends LitElement {
           checkbox.setAttribute('checked', true);
 
           this.newTheme.push(checkbox.getAttribute('value'));
-          this.currentTheme.push(checkbox.getAttribute('value'));
+          this.currentThemes.push(checkbox.getAttribute('value'));
         }
 
         this.requestUpdate();
