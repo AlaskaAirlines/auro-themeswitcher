@@ -42,6 +42,7 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^11.0.0",
+    "@types/chrome": "^0.0.283",
     "@web/dev-server": "^0.4.6",
     "@web/test-runner": "^0.18.2",
     "autoprefixer": "^10.4.19",

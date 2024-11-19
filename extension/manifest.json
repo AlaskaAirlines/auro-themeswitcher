@@ -3,8 +3,24 @@
   "name": "Auro Theme Switcher",
   "description": "A theme switcher for testing Auro themes",
   "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "run_at": "document_idle",
+      "css": [
+        "external_deps/CSSCustomProperties.css",
+        "external_deps/essentials.css"
+      ],
+      "js": ["removeAuroImports.js"]
+    }
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": "switch.png"
-  }
+  },
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "permissions": ["scripting", "tabs"]
 }
