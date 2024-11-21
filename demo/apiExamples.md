@@ -5,11 +5,19 @@
 
 ## Properties
 
-| Property      | Attribute | Type    | Default                                          | Description                                      |
-|---------------|-----------|---------|--------------------------------------------------|--------------------------------------------------|
-| [buttonTag](#buttonTag)   |           |         |                                                  |                                                  |
-| [checkboxTag](#checkboxTag) |           |         |                                                  |                                                  |
-| [themes](#themes)      | `themes`  | `Array` | [{"label":"Jetstream","url":"https://jetstream-rouge.vercel.app/themes/jetstream.css"},{"label":"Californian","url":"https://jetstream-rouge.vercel.app/themes/californian.css"},{"label":"Excursion Prototype","url":"https://jetstream-rouge.vercel.app/themes/excursion.css"},{"label":"Excursion Green","url":"https://jetstream-rouge.vercel.app/themes/excursion-green.css"},{"label":"Excursion Dark","url":"https://jetstream-rouge.vercel.app/themes/night.css"}] | This accepts an array of JSON object outlining the themes to support. |
+| Property          | Attribute         | Type    | Default                                          | Description                                      |
+|-------------------|-------------------|---------|--------------------------------------------------|--------------------------------------------------|
+| [buttonTag](#buttonTag)       |                   |         |                                                  |                                                  |
+| [checkboxTag](#checkboxTag)     |                   |         |                                                  |                                                  |
+| [lockupTag](#lockupTag)       |                   |         |                                                  |                                                  |
+| [resetCheckmarks](#resetCheckmarks) | `resetCheckmarks` | `array` | false                                            |                                                  |
+| [themes](#themes)          | `themes`          | `Array` | [{"label":"Auro Classic","url":"https://jetstream-rouge.vercel.app/themes/jetstream.css"},{"label":"Hawaiian","url":"https://jetstream-rouge.vercel.app/themes/californian.css"},{"label":"Readiness Test","url":"https://jetstream-rouge.vercel.app/themes/transparent.css"}] | This accepts an array of JSON object outlining the themes to support. |
+
+## Methods
+
+| Method             | Type                |
+|--------------------|---------------------|
+| [markLoadedthemes](#markLoadedthemes) | `(urls: any): void` |
 <!-- AURO-GENERATED-CONTENT:END -->
 
 ## API Examples

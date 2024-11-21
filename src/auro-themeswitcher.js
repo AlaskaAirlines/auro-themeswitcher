@@ -14,9 +14,12 @@ import { AuroCheckbox } from '@aurodesignsystem/auro-checkbox/src/auro-checkbox.
 import checkboxVersion from './checkboxVersion';
 import { AuroButton } from '@aurodesignsystem/auro-button/src/auro-button.js';
 import buttonVersion from './buttonVersion';
+import { AuroLockup } from '@aurodesignsystem/auro-lockup/src/auro-lockup.js';
+import lockupVersion from './lockupVersion';
+import '@aurodesignsystem/auro-icon';
 
 /**
- * @param {{label: string; url: string}[]} themes
+ * @param {{label: string; url: string}[]} themes - The list of supported themes in JSON format.
  * @return {CustomEvent<{themes: {label: string; url: string}[]}>}
  * @constructor
  */
@@ -24,6 +27,13 @@ const createThemeSelectionEvent = (themes) => new CustomEvent('theme-selected', 
   detail: {
     themes
   },
+  // Allow the event to bubble up through the DOM
+  bubbles: true,
+  // Allow the event to cross shadow DOM boundaries
+  composed: true
+});
+
+const ressetThemeSelectionEvent = () => new CustomEvent('theme-reset', {
   // Allow the event to bubble up through the DOM
   bubbles: true,
   // Allow the event to cross shadow DOM boundaries
@@ -41,24 +51,16 @@ export class AuroThemeswitcher extends LitElement {
     super();
     this.themes = [
       {
-        label: 'Jetstream',
+        label: 'Auro Classic',
         url: 'https://jetstream-rouge.vercel.app/themes/jetstream.css'
       },
       {
-        label: 'Californian',
+        label: 'Hawaiian',
         url: 'https://jetstream-rouge.vercel.app/themes/californian.css'
       },
       {
-        label: 'Excursion Prototype',
-        url: 'https://jetstream-rouge.vercel.app/themes/excursion.css'
-      },
-      {
-        label: 'Excursion Green',
-        url: 'https://jetstream-rouge.vercel.app/themes/excursion-green.css'
-      },
-      {
-        label: 'Excursion Dark',
-        url: 'https://jetstream-rouge.vercel.app/themes/night.css'
+        label: 'Readiness Test',
+        url: 'https://jetstream-rouge.vercel.app/themes/transparent.css'
       }
     ];
 
@@ -66,6 +68,11 @@ export class AuroThemeswitcher extends LitElement {
      * @private
      */
     this.disableApply = true;
+
+    /**
+     * @private
+     */
+    this.disableReset = true;
 
     /**
      * @private
@@ -82,12 +89,15 @@ export class AuroThemeswitcher extends LitElement {
      */
     this.loadedThemes = [];
 
+    this.resetCheckmarks = false;
+
     /**
      * Generate unique names for dependency components.
      */
     const versioning = new AuroDependencyVersioning();
     this.checkboxTag = versioning.generateTag('auro-checkbox', checkboxVersion, AuroCheckbox);
     this.buttonTag = versioning.generateTag('auro-button', buttonVersion, AuroButton);
+    this.lockupTag = versioning.generateTag('auro-lockup', lockupVersion, AuroLockup);
   }
 
   static get styles() {
@@ -108,6 +118,9 @@ export class AuroThemeswitcher extends LitElement {
       disableApply: {
         type: Boolean,
         reflect: true
+      },
+      resetCheckmarks: {
+        type: Array
       }
     };
   }
@@ -131,20 +144,28 @@ export class AuroThemeswitcher extends LitElement {
 
   /**
    * @private
+   * @returns {void} Forces a theme reset
+   */
+  resetThemes() {
+    this.unloadThemes(true);
+    this.disableReset = true;
+  }
+
+  /**
+   * @private
    * @returns {void} Removes all loaded themes from the DOM.
    */
-  unloadThemes() {
-    this.themes.forEach((theme) => {
-      if (this.loadedThemes.includes(theme)) {
-        try {
-          const loadedTheme = document.querySelector(`link[rel=stylesheet][href='${theme.url}']`);
+  unloadThemes(reset = false) {
+    if (reset) {
+      this.currentThemes = [];
+      const checkboxes = this.shadowRoot.querySelectorAll('[auro-checkbox]');
 
-          loadedTheme.parentNode.removeChild(loadedTheme);
-        } catch (err) {
-          console.warn('Auro Theme Switcher - unable to remove previously loaded theme(s).'); // eslint-disable-line no-console
-        }
-      }
-    });
+      checkboxes.forEach((checkbox) => {
+        checkbox.removeAttribute('checked');
+      });
+    }
+
+    this.dispatchEvent(ressetThemeSelectionEvent());
   }
 
   /**
@@ -191,14 +212,14 @@ export class AuroThemeswitcher extends LitElement {
     }
 
     this.requestUpdate();
-    this.handleApplyBtnState();
+    this.handleBtnState();
   }
 
   /**
    * @private
    * @returns {void} Toggles disabled state of the apply button based on theme selection.
    */
-  handleApplyBtnState() {
+  handleBtnState() {
     this.getLoadedThemes();
 
     if (JSON.stringify(this.loadedThemes) === JSON.stringify(this.newTheme)) {
@@ -214,30 +235,24 @@ export class AuroThemeswitcher extends LitElement {
    */
   applyThemes() {
     this.disableApply = true;
-
-    this.toggleThemeSwitcher();
     this.unloadThemes();
     this.loadSelectedthemes();
+    this.handleBtnState();
+    this.disableReset = false;
   }
 
   /**
-   * @private
    * @returns {void} Marks all loaded themes as selected in the checkbox group.
    */
-  markLoadedthemes() {
-    this.loadedThemes.forEach((theme) => {
-      const checkboxes = this.shadowRoot.querySelector('auro-dialog').querySelectorAll('auro-checkbox');
+  markLoadedthemes(urls) {
+    const checkboxes = this.shadowRoot.querySelectorAll('[auro-checkbox]');
 
-      checkboxes.forEach((checkbox) => {
-        if (checkbox.id === theme.label) {
-          checkbox.setAttribute('checked', true);
+    checkboxes.forEach((checkbox) => {
+      const optionUrl = JSON.parse(checkbox.getAttribute('value'))['url'];
 
-          this.newTheme.push(checkbox.getAttribute('value'));
-          this.currentThemes.push(checkbox.getAttribute('value'));
-        }
-
-        this.requestUpdate();
-      });
+      if (urls.includes(optionUrl)) {
+        checkbox.setAttribute('checked', true);
+      }
     });
   }
 
@@ -246,7 +261,7 @@ export class AuroThemeswitcher extends LitElement {
    * @returns {void} Toggles display of the themeswitcher dialog.
    */
   toggleThemeSwitcher() {
-    const dialog = this.shadowRoot.querySelector('#auroThemeSwitcherDialog');
+    const dialog = this.shadowRoot.querySelector('').querySelector('#auroThemeSwitcherDialog');
 
     dialog.hasAttribute('open') // eslint-disable-line no-unused-expressions
       ? dialog.removeAttribute("open")
@@ -255,63 +270,84 @@ export class AuroThemeswitcher extends LitElement {
   }
 
   firstUpdated() {
+    console.warn('firstUpdated');
     this.dropdown = this.shadowRoot.querySelector('#auroThemeSelector');
 
     this.getLoadedThemes();
-    this.markLoadedthemes();
+    // this.markLoadedthemes(); 
+  }
+
+  updated(changedProperties) {
+    this.markLoadedthemes(); 
   }
 
   render() {
     return html`
       <div>
-        <auro-button aria-label="Theme Switcher" @click="${this.toggleThemeSwitcher}" part="trigger">
-          <slot></slot>
-        </auro-button>
-        <auro-dialog id="auroThemeSwitcherDialog" part="dialog">
-          <span slot="header">Theme Switcher</span>
-          <div slot="content">
-            <div class="selector">
-              <span slot="legend">
-                Choose which themes to apply:
-              </span>
-              <auro-checkbox-group required>
-                ${this.themes.map((theme) => html`
-                  <${this.checkboxTag}
-                    value="${JSON.stringify(theme)}"
-                    name="${theme.label}"
-                    id="${theme.label}"
-                    @auroCheckbox-input="${this.handleCheckboxSelection}">
-                    ${theme.label}
-                  </${this.checkboxTag}>
-                `)}
-              </auro-checkbox-group>
-            </div>
-            ${this.disableApply ? undefined : html`
-              <div slot="footer" className="auro_containedButtons">
-                <div class="applicator">
-                  ${this.newTheme.length === 0 ? html`
-                    <p>
-                      No themes are selected. Clicking the APPLY buttton will render the page with no theme styles.
-                    </p>
-                  ` : html`
-                    <p>
-                      Clicking the APPLY button will remove all current themes and apply the selected themes in the following order:
-                    </p>
-                    <ol>
-                      ${this.newTheme.map((theme) => html`<li>${JSON.parse(theme).label}</li>`)}
-                    </ol>
-                  `}
-
-                  <${this.buttonTag}
-                    @click="${this.applyThemes}"
-                    ?disabled="${this.disableApply}">
-                    APPLY
-                  </${this.buttonTag}>
-                </div>
-              </div>
+        <${this.lockupTag}>
+          <span slot="title">Auro</span>
+          <span slot="subtitle">design system</span>
+        </${this.lockupTag}>
+        <p>
+          This utility is a theme switcher for the purpose of validating the look and feel of a page with the chosen theme applied.
+        </p>
+        <div class="selector">
+          <auro-checkbox-group required>
+            ${this.themes.map((theme) => html`
+              <${this.checkboxTag}
+                value="${JSON.stringify(theme)}"
+                name="${theme.label}"
+                id="${theme.label}"
+                @auroCheckbox-input="${this.handleCheckboxSelection}">
+                ${theme.label}
+              </${this.checkboxTag}>
+            `)}
+          </auro-checkbox-group>
+          <${this.buttonTag}
+            variant="tertiary"
+            @click="${this.resetThemes}"
+            ?disabled="${this.disableReset}"
+            class="resetBtn">
+            RESET
+          </${this.buttonTag}>
+          <${this.buttonTag}
+            class="applyBtn"
+            @click="${this.applyThemes}"
+            ?disabled="${this.disableApply}">
+            APPLY
+          </${this.buttonTag}>
+          <p class="finePrint">
+            The Readiness Test theme is for use in testing which elements
+            on the rendered page are not styled by the theme. Once applied,
+            the theme will hide (make transparent) all rendered elements
+            that will correctly respond to a published theme. 
+            Any elements that are still seen on the page
+            are using color value that should be updated to the latest 
+            design token definintions or are Auro components that should
+            be updatd to the latest version.
+          </p>
+        </div>
+        ${this.disableApply ? undefined : html`
+          <div class="applicator">
+            ${this.newTheme.length === 0 ? html`
+              <p>
+                No themes are selected. Clicking the APPLY buttton will render the page with no theme styles.
+              </p>
+            ` : html`
+              <p>
+                Clicking the APPLY button will remove all current applied themes and apply the selected themes in the following order:
+              </p>
+              <ol>
+                ${this.newTheme.map((theme) => html`<li>${JSON.parse(theme).label}</li>`)}
+              </ol>
             `}
+            <${this.buttonTag}
+              @click="${this.applyThemes}"
+              ?disabled="${this.disableApply}">
+              APPLY
+            </${this.buttonTag}>
           </div>
-        </auro-dialog>
+        `}
       </div>
     `;
   }

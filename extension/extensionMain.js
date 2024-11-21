@@ -47,3 +47,46 @@ themeSwitcher.addEventListener('theme-selected', async (event) => {
     args: [themeArr]
   });
 });
+
+themeSwitcher.addEventListener('theme-reset', async () => {
+  console.warn('resetting themes'); // eslint-disable-line no-console
+
+  const tabId = await getTabId();
+
+  await chrome.scripting.executeScript({
+    target: { tabId },
+    func: () => {
+      // Access the real DOM within the page context
+      const links = document.head.querySelectorAll('link[data-id^="theme-switcher-link-"]');
+
+      // Remove old theme links
+      for (const link of links) {
+        link.remove();
+      }
+    }
+  }); 
+});
+
+(async () => {
+  const tabId = await getTabId();
+
+  const returnVal = await chrome.scripting.executeScript({
+    target: { tabId },
+    func: () => {
+      console.warn('executing markLoadedThemes'); // eslint-disable-line no-console
+
+      const links = document.head.querySelectorAll('link[data-id^="theme-switcher-link-"]');
+    
+      let urls = [];
+
+      links.forEach((link) => {
+        urls.push(link.href);
+      });
+
+
+      return urls;
+    }
+  });
+
+  themeSwitcher.markLoadedthemes(returnVal[0].result);
+})()

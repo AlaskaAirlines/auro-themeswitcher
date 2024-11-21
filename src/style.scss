@@ -15,20 +15,43 @@
 
 @import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariableMap';
 
-p {
-  margin-top: 0;
-}
-
 :host {
   auro-checkbox-group {
-    padding-bottom: 0;
+    margin-bottom: var(--ds-size-400, $ds-size-400);
+  }
+
+  [auro-checkbox] {
+    &:first-of-type {
+      margin-top: var(--ds-size-100, $ds-size-100);
+    }
+
+    &:last-of-type {
+      margin-bottom: var(--ds-size-200, $ds-size-200);
+    }
+  }
+
+  // .resetBtn {
+  //   display: none;
+  // }
+
+  .selector {
+    margin-top: var(--ds-size-200, $ds-size-200);
+  }
+
+  .finePrint {
+    margin-top: var(--ds-size-200, $ds-size-200);
+    margin-bottom: 0;
+    color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
+    font-size: var(--ds-text-body-size-xs, $ds-text-body-size-xs);
+    font-style: italic;
+    line-height: var(--ds-text-body-height-xs, $ds-text-body-height-xs);
   }
 
   .applicator {
-    padding: var(--auro-size-200);
-
-    border: solid 1px var(--ds-color-border-secondary-default);
-
-    background-color: var(--ds-color-container-secondary-default);
+    display: none;
+    padding: var(--ds-size-200, $ds-size-200);
+    border: 1px solid var(--ds-color-border-secondary-default, $ds-color-border-secondary-default);
+    margin-top: var(--ds-size-200, $ds-size-200);
+    background-color: var(--ds-color-container-secondary-default, $ds-color-container-secondary-default);
   }
 }
