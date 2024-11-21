@@ -72,11 +72,6 @@ export class AuroThemeswitcher extends LitElement {
     /**
      * @private
      */
-    this.disableReset = true;
-
-    /**
-     * @private
-     */
     this.currentThemes = [];
 
     /**
@@ -144,20 +139,22 @@ export class AuroThemeswitcher extends LitElement {
 
   /**
    * @private
-   * @returns {void} Forces a theme reset
+   * @returns {void} Forces a theme reset.
    */
   resetThemes() {
     this.unloadThemes(true);
-    this.disableReset = true;
+    this.disableApply = true;
   }
 
   /**
    * @private
+   * @param {boolean} reset - Determines if the themes should be reset.
    * @returns {void} Removes all loaded themes from the DOM.
    */
   unloadThemes(reset = false) {
     if (reset) {
       this.currentThemes = [];
+      this.newTheme = [];
       const checkboxes = this.shadowRoot.querySelectorAll('[auro-checkbox]');
 
       checkboxes.forEach((checkbox) => {
@@ -173,21 +170,7 @@ export class AuroThemeswitcher extends LitElement {
    * @returns {void} Loads all selected themes into the DOM.
    */
   loadSelectedthemes() {
-    const head = document.getElementsByTagName("head")[0]; // eslint-disable-line prefer-destructuring
-
     this.currentThemes = this.newTheme;
-
-    this.currentThemes.forEach((theme) => {
-      const themeObj = JSON.parse(theme);
-      const link = document.createElement("link");
-
-      link.setAttribute('theme', themeObj.label);
-      link.rel = "stylesheet";
-      link.href = themeObj.url;
-
-      head.appendChild(link);
-    });
-
     this.dispatchEvent(createThemeSelectionEvent(this.currentThemes));
   }
 
@@ -212,21 +195,7 @@ export class AuroThemeswitcher extends LitElement {
     }
 
     this.requestUpdate();
-    this.handleBtnState();
-  }
-
-  /**
-   * @private
-   * @returns {void} Toggles disabled state of the apply button based on theme selection.
-   */
-  handleBtnState() {
-    this.getLoadedThemes();
-
-    if (JSON.stringify(this.loadedThemes) === JSON.stringify(this.newTheme)) {
-      this.disableApply = true;
-    } else {
-      this.disableApply = false;
-    }
+    this.disableApply = false;
   }
 
   /**
@@ -234,21 +203,20 @@ export class AuroThemeswitcher extends LitElement {
    * @returns {void} Applies selected themes.
    */
   applyThemes() {
-    this.disableApply = true;
     this.unloadThemes();
     this.loadSelectedthemes();
-    this.handleBtnState();
-    this.disableReset = false;
+    this.disableApply = true;
   }
 
   /**
+   * @param {string[]} urls - The list of theme URLs to mark as selected.
    * @returns {void} Marks all loaded themes as selected in the checkbox group.
    */
   markLoadedthemes(urls) {
     const checkboxes = this.shadowRoot.querySelectorAll('[auro-checkbox]');
 
     checkboxes.forEach((checkbox) => {
-      const optionUrl = JSON.parse(checkbox.getAttribute('value'))['url'];
+      const optionUrl = JSON.parse(checkbox.getAttribute('value')).url;
 
       if (urls.includes(optionUrl)) {
         checkbox.setAttribute('checked', true);
@@ -270,15 +238,7 @@ export class AuroThemeswitcher extends LitElement {
   }
 
   firstUpdated() {
-    console.warn('firstUpdated');
     this.dropdown = this.shadowRoot.querySelector('#auroThemeSelector');
-
-    this.getLoadedThemes();
-    // this.markLoadedthemes(); 
-  }
-
-  updated(changedProperties) {
-    this.markLoadedthemes(); 
   }
 
   render() {
@@ -306,7 +266,6 @@ export class AuroThemeswitcher extends LitElement {
           <${this.buttonTag}
             variant="tertiary"
             @click="${this.resetThemes}"
-            ?disabled="${this.disableReset}"
             class="resetBtn">
             RESET
           </${this.buttonTag}>
@@ -320,9 +279,9 @@ export class AuroThemeswitcher extends LitElement {
             The Readiness Test theme is for use in testing which elements
             on the rendered page are not styled by the theme. Once applied,
             the theme will hide (make transparent) all rendered elements
-            that will correctly respond to a published theme. 
+            that will correctly respond to a published theme.
             Any elements that are still seen on the page
-            are using color value that should be updated to the latest 
+            are using color value that should be updated to the latest
             design token definintions or are Auro components that should
             be updatd to the latest version.
           </p>
