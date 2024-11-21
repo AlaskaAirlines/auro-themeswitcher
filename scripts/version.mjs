@@ -2,3 +2,4 @@ import versionWriter from '@aurodesignsystem/auro-library/scripts/build/versionW
 
 versionWriter.writeDepVersionFile('@aurodesignsystem/auro-checkbox');
 versionWriter.writeDepVersionFile('@aurodesignsystem/auro-button');
+versionWriter.writeDepVersionFile('@aurodesignsystem/auro-lockup');
