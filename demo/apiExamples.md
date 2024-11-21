@@ -15,9 +15,9 @@
 
 ## Methods
 
-| Method             | Type                |
-|--------------------|---------------------|
-| [markLoadedthemes](#markLoadedthemes) | `(urls: any): void` |
+| Method             | Type                     | Description                                      |
+|--------------------|--------------------------|--------------------------------------------------|
+| [markLoadedthemes](#markLoadedthemes) | `(urls: string[]): void` | **urls**: The list of theme URLs to mark as selected. |
 <!-- AURO-GENERATED-CONTENT:END -->
 
 ## API Examples

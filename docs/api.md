@@ -12,6 +12,6 @@
 
 ## Methods
 
-| Method             | Type                |
-|--------------------|---------------------|
-| `markLoadedthemes` | `(urls: any): void` |
+| Method             | Type                     | Description                                      |
+|--------------------|--------------------------|--------------------------------------------------|
+| `markLoadedthemes` | `(urls: string[]): void` | **urls**: The list of theme URLs to mark as selected. |
