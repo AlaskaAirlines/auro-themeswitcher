@@ -1,5 +1,26 @@
 # Semantic Release Automated Changelog
 
+# [2.0.0](https://github.com/AlaskaAirlines/auro-themeswitcher/compare/v1.5.0...v2.0.0) (2024-11-21)
+
+
+### Bug Fixes
+
+* disable theme application in extension, never disable reset, conditionally disable apply ([0c886c4](https://github.com/AlaskaAirlines/auro-themeswitcher/commit/0c886c410cd4d5995ef7e42c7af8e140b33fad23))
+* use correct `detail` name for event config ([1518afa](https://github.com/AlaskaAirlines/auro-themeswitcher/commit/1518afa4cc27b3997a8499b94219598e49cedd97))
+
+
+### Features
+
+* barebones local extension development support ([1e43883](https://github.com/AlaskaAirlines/auro-themeswitcher/commit/1e43883c904700cb13437e8ea086c4ea8014e9ca))
+* consume theme-selected event in extension ([a8c66ac](https://github.com/AlaskaAirlines/auro-themeswitcher/commit/a8c66ac50f6d9bc38fb8aa408b0fcc62c1ec0fe5))
+* explore content injection via Chrome extension manifest ([d0df6e5](https://github.com/AlaskaAirlines/auro-themeswitcher/commit/d0df6e5fcf2e7db1fcd3e10a9c743ec58cc315bb))
+* surface theme-selected event ([22205d4](https://github.com/AlaskaAirlines/auro-themeswitcher/commit/22205d4a2f7941c0b7d08fc9305ff92b62326bf8))
+
+
+### BREAKING CHANGES
+
+* The themes selected _do not_ get applied to the Chrome extension window, as the readiness test completely destroys the view since every auro component used is themeable (results in a blank window that looks like it broke).
+
 # [1.5.0](https://github.com/AlaskaAirlines/auro-themeswitcher/compare/v1.4.0...v1.5.0) (2024-07-27)
 
 
